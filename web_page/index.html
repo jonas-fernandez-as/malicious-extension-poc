@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Shield Pro | Protección Avanzada de Navegación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #4cd137;
+            text-shadow: 0 2px 10px rgba(76, 209, 55, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .left-panel, .right-panel {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .left-panel:hover, .right-panel:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .feature-icon {
+            background: #e3f2fd;
+            color: #0c2461;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        h2 {
+            color: #0c2461;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #f1f8ff;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            margin-bottom: 8px;
+            color: #222;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .stat {
+            padding: 0 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0c2461;
+            display: block;
+            line-height: 1;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .browser-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .browser-btn {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 20px;
+            width: 180px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .browser-btn:hover, .browser-btn.active {
+            border-color: #0c2461;
+            box-shadow: 0 5px 15px rgba(12, 36, 97, 0.1);
+        }
+        
+        .browser-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .browser-btn.firefox .browser-icon {
+            color: #FF7139;
+        }
+        
+        .browser-btn.chrome .browser-icon {
+            color: #4285F4;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #4cd137, #44bd32);
+            color: white;
+            text-decoration: none;
+            padding: 22px 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(76, 209, 55, 0.3);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(76, 209, 55, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            border-left: 5px solid #4cd137;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #0c2461;
+            margin-top: 10px;
+            text-align: right;
+        }
+        
+        /* Estilos para el modal de instalación */
+        .install-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #0c2461;
+        }
+
+        .modal-content h3 {
+            color: #0c2461;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .browser-steps {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #4cd137;
+        }
+
+        .browser-steps ol {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .browser-steps li {
+            margin-bottom: 12px;
+            padding-left: 5px;
+        }
+
+        .browser-steps code {
+            background: #e3f2fd;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #0c2461;
+        }
+
+        /* Estilos para el cuadro de pretexto */
+        .pretext-box {
+            background: linear-gradient(to right, #fff8e1, #fff);
+            border: 1px solid #ffd54f;
+            border-left: 5px solid #ffa000;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #5d4037;
+        }
+
+        .pretext-box h4 {
+            color: #ff8f00;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pretext-box ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .pretext-box li {
+            margin-bottom: 12px;
+            padding-left: 5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .pretext-box li i {
+            color: #ffa000;
+            margin-top: 3px;
+        }
+
+        .pretext-note {
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #ffd54f;
+            color: #8d6e63;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .modal-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+        }
+
+        .modal-btn.primary {
+            background: linear-gradient(to right, #4cd137, #44bd32);
+            color: white;
+        }
+
+        .modal-btn.secondary {
+            background: #f1f3f4;
+            color: #5f6368;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-note {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-style: italic;
+            border-top: 1px dashed #ddd;
+            padding-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .browser-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .modal-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1>Privacy Shield Pro</h1>
+            <p class="tagline">La extensión de privacidad más avanzada para tu navegador. Bloquea anuncios, trackers y protege tus datos en tiempo real.</p>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span> 4.7/5 basado en 12,543 reseñas</span>
+            </div>
+            <p><i class="fas fa-users"></i> Más de 2,500,000 usuarios activos</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-panel">
+                <h2><i class="fas fa-star"></i> Características Principales</h2>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <div>
+                        <h3>Bloqueador de Anuncios Inteligente</h3>
+                        <p>Elimina anuncios intrusivos, pop-ups y banners sin afectar tu experiencia de navegación.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <div>
+                        <h3>Protección Anti-Rastreo</h3>
+                        <p>Bloquea trackers de Facebook, Google Analytics y otras herramientas de seguimiento.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h3>Aceleración de Páginas Web</h3>
+                        <p>Las páginas cargan hasta un 40% más rápido al bloquear elementos innecesarios.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <h3>Protección Contra Phishing</h3>
+                        <p>Te advierte sobre sitios web fraudulentos y páginas de phishing conocidas.</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div>
+                        <h3>Modo Oscuro Universal</h3>
+                        <p>Aplica un modo oscuro agradable a la vista en cualquier sitio web que visites.</p>
+                    </div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat">
+                        <span class="stat-number">2.5M+</span>
+                        <span>Usuarios</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99.2%</span>
+                        <span>Satisfacción</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.7/5</span>
+                        <span>Valoración</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <h2><i class="fas fa-download"></i> Descarga Instantánea</h2>
+                
+                <p>Selecciona tu navegador para descargar la versión compatible:</p>
+                
+                <div class="browser-selector">
+                    <div class="browser-btn firefox active" data-browser="firefox">
+                        <div class="browser-icon">
+                            <i class="fab fa-firefox"></i>
+                        </div>
+                        <div class="browser-name">Mozilla Firefox</div>
+                        <small>Archivo .xpi</small>
+                    </div>
+                    
+                    <div class="browser-btn chrome" data-browser="chrome">
+                        <div class="browser-icon">
+                            <i class="fab fa-chrome"></i>
+                        </div>
+                        <div class="browser-name">Google Chrome</div>
+                        <small>Archivo .zip</small>
+                    </div>
+                </div>
+                
+                <div class="download-section">
+                    <button id="downloadButton" class="download-btn">
+                        <i class="fas fa-download"></i> DESCARGAR PRIVACY SHIELD PRO
+                    </button>
+                    <p><small>Tamaño: 3.2 MB • Versión 5.2.1 • Actualizado hoy</small></p>
+                    <p><i class="fas fa-shield-alt"></i> <strong>100% Libre de Virus</strong> - Verificado por 68 motores antivirus</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p><i class="fas fa-quote-left"></i> He probado muchas extensiones de privacidad y esta es, con diferencia, la más efectiva. Mi navegador nunca ha sido tan rápido y seguro. <i class="fas fa-quote-right"></i></p>
+                    <div class="testimonial-author">- Carlos M., Desarrollador Web</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p><i class="fas fa-quote-left"></i> Instalé Privacy Shield Pro hace 3 meses y noté la diferencia inmediatamente. Los anuncios desaparecieron y tengo la tranquilidad de que mis datos están protegidos. <i class="fas fa-quote-right"></i></p>
+                    <div class="testimonial-author">- Ana R., Profesora</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Privacy Shield Pro © 2023 | Protegiendo la privacidad digital de millones de usuarios</p>
+            <div class="footer-links">
+                <a href="#"><i class="far fa-file-alt"></i> Política de Privacidad</a>
+                <a href="#"><i class="fas fa-scroll"></i> Términos de Servicio</a>
+                <a href="#"><i class="far fa-question-circle"></i> Soporte Técnico</a>
+                <a href="#"><i class="far fa-envelope"></i> Contacto</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal para Instrucciones de Instalación (OCULTO INICIALMENTE) -->
+    <div id="installModal" class="install-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3><i class="fas fa-download"></i> Instalar Privacy Shield Pro</h3>
+            <div id="chromeSteps" class="browser-steps">
+                <p>Sigue estos pasos para <strong>Google Chrome</strong>:</p>
+                <ol>
+                    <li>Descarga el archivo <code>Privacy_Shield_ProV5.2.1.zip</code> que se inició automáticamente.</li>
+                    <li><strong>Extrae el contenido</strong> del archivo ZIP en una carpeta de tu computadora.</li>
+                    <li>Abre una nueva pestaña y ve a <code>chrome://extensions</code>.</li>
+                    <li>Activa el <strong>interruptor "Modo desarrollador"</strong> (Developer mode) en la esquina superior derecha.</li>
+                    <li>Haz clic en el botón <strong>"Cargar extensión sin empaquetar"</strong> (Load unpacked).</li>
+                    <li>Navega y selecciona la <strong>carpeta</strong> que extrajiste del ZIP, luego haz clic en "Seleccionar carpeta" (Select Folder).</li>
+                    <li>¡Listo! La extensión estará instalada y activa.</li>
+                </ol>
+            </div>
+            <div id="firefoxSteps" class="browser-steps">
+                <p>Sigue estos pasos para <strong>Mozilla Firefox</strong>:</p>
+                <ol>
+                    <li>Descarga el archivo <code>Privacy_Shield_ProV5.2.1.xpi</code> que se inició automáticamente.</li>
+                    <li>Abre una nueva pestaña y ve a <code>about:debugging</code></li>
+                    <li>Haz clic en la pestaña <strong>"Este Firefox"</strong> en el menú lateral izquierdo.</li>
+                    <li>Haz clic en el botón <strong>"Cargar complemento temporal…"</strong>.</li>
+                    <li>Navega y selecciona el archivo <code>.xpi</code> que descargaste.</li>
+                    <li>La extensión estará activa hasta que reinicies el navegador.</li>
+                </ol>
+            </div>
+
+            <!-- NUEVO: PRETEXTO DE INGENIERÍA SOCIAL -->
+            <div class="pretext-box">
+                <h4><i class="fas fa-question-circle"></i> ¿Por qué es más complejo instalarlo?</h4>
+                <p>Privacy Shield Pro ofrece una protección <strong>tan efectiva</strong> que los modelos de negocio de Google (Chrome Web Store) y Mozilla (Firefox Add-ons) se ven afectados.</p>
+                <ul>
+                    <li><i class="fas fa-ad"></i> <strong>Bloqueamos anuncios radicalmente</strong>, incluidos los propios de estas plataformas, lo que va en contra de sus políticas.</li>
+                    <li><i class="fas fa-shield-alt"></i> <strong>Exponemos métodos de rastreo</strong> que los propios navegadores y sitios web populares utilizan, algo que no permiten en sus tiendas "oficiales".</li>
+                    <li><i class="fas fa-user-check"></i> <strong>Elegimos la independencia</strong> para servir a los usuarios, no a los intereses corporativos. Esta instalación manual es el pequeño precio por una privacidad real y sin concesiones.</li>
+                </ul>
+                <p class="pretext-note"><em>"Si una extensión de privacidad te permite instalarla con un solo clic desde la tienda oficial, pregúntate: ¿qué compromisos habrá hecho con los grandes de la tecnología para estar allí?"</em></p>
+            </div>
+
+            <div class="modal-actions">
+                <button id="proceedDownload" class="modal-btn primary">
+                    <i class="fas fa-file-download"></i> Entendido, iniciar descarga
+                </button>
+                <button id="cancelInstall" class="modal-btn secondary">
+                    Cancelar
+                </button>
+            </div>
+            <p class="modal-note"><small><i class="fas fa-info-circle"></i> Si tu navegador bloquea la descarga directa, revisa la configuración de seguridad o permisos de descarga.</small></p>
+        </div>
+    </div>
+
+    <script>
+        // Selección del navegador y elementos del modal
+        const browserButtons = document.querySelectorAll('.browser-btn');
+        const downloadButton = document.getElementById('downloadButton');
+        const installModal = document.getElementById('installModal');
+        const closeModal = document.querySelector('.close-modal');
+        const cancelBtn = document.getElementById('cancelInstall');
+        const proceedBtn = document.getElementById('proceedDownload');
+        const chromeSteps = document.getElementById('chromeSteps');
+        const firefoxSteps = document.getElementById('firefoxSteps');
+
+        let selectedBrowser = 'firefox';
+        let pendingFileName = '';
+
+        // Configuración de botones del navegador
+        browserButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                browserButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                selectedBrowser = this.getAttribute('data-browser');
+                downloadButton.innerHTML = `<i class="fas fa-download"></i> DESCARGAR PARA ${selectedBrowser.toUpperCase()}`;
+            });
+        });
+
+        // Mostrar modal con instrucciones en lugar de descargar inmediatamente
+        downloadButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Determinar archivo y mostrar pasos correctos
+            if(selectedBrowser === 'firefox') {
+                pendingFileName = 'Privacy_Shield_ProV5.2.1.xpi';
+                chromeSteps.style.display = 'none';
+                firefoxSteps.style.display = 'block';
+            } else {
+                pendingFileName = 'Privacy_Shield_ProV5.2.1.zip';
+                firefoxSteps.style.display = 'none';
+                chromeSteps.style.display = 'block';
+            }
+            
+            // Mostrar modal
+            installModal.style.display = 'flex';
+        });
+
+        // Funcionalidad para cerrar el modal
+        closeModal.addEventListener('click', () => installModal.style.display = 'none');
+        cancelBtn.addEventListener('click', () => installModal.style.display = 'none');
+
+        // Funcionalidad para proceder con la descarga después de ver instrucciones
+        proceedBtn.addEventListener('click', function() {
+            installModal.style.display = 'none';
+            
+            // Crear enlace temporal para forzar la descarga del archivo
+            const tempLink = document.createElement('a');
+            tempLink.href = pendingFileName;
+            tempLink.download = pendingFileName;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+            
+            // Mensaje final (puedes comentarlo para el video si quieres)
+            console.log(`[DEMO] Descarga iniciada: ${pendingFileName} para ${selectedBrowser}`);
+        });
+
+        // Cerrar modal si se hace clic fuera del contenido
+        window.addEventListener('click', (e) => {
+            if(e.target === installModal) installModal.style.display = 'none';
+        });
+
+        // Animación inicial de los paneles
+        document.addEventListener('DOMContentLoaded', function() {
+            const panels = document.querySelectorAll('.left-panel, .right-panel');
+            panels.forEach((panel, index) => {
+                setTimeout(() => {
+                    panel.style.opacity = '1';
+                    panel.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+            panels.forEach(panel => {
+                panel.style.opacity = '0';
+                panel.style.transform = 'translateY(20px)';
+                panel.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+        });
+    </script>
+</body>
+</html>
