@@ -1,4 +1,3 @@
-```markdown
 # 🔐 Instagram Session Hijacking - Educational Proof of Concept
 
 <div align="center">
@@ -50,7 +49,7 @@ THIS IS A TECHNICAL DEMONSTRATION IN A CONTROLLED ENVIRONMENT
 
 [![WATCH FULL DEMONSTRATION](https://via.placeholder.com/800x450/ff0000/ffffff?text=WATCH+FULL+DEMONSTRATION)](https://www.youtube.com/watch?v=your_video_id_here)  
 
-*Click the image to watch the complete demonstration on YouTube*
+*Click the image to watch the complete demonstration on YouTube (reemplaza el link con tu video real)*
 
 </div>
 
@@ -71,8 +70,7 @@ This repository contains an educational Proof of Concept (PoC) demonstrating Ses
 
 ### 🗂️ Repository Structure
 
-```
-instagram-session-hijacking-poc/
+malicious-extension-poc/
 │
 ├── malicious_v2/              # Firefox-based extension (Manifest V2)
 │   ├── manifest.json
@@ -96,11 +94,13 @@ instagram-session-hijacking-poc/
 │   ├── requirements.txt
 │   └── stolen_data.log
 │
-└── web_page/                  # Fake landing page for the attack
-    ├── index.html
-    ├── Privacy_Shield_ProV5.2.1.xpi
-    └── Privacy_Shield_ProV5.2.1.zip
-```
+├── web_page/                  # Fake landing page for the attack
+│   ├── index.html
+│   ├── Privacy_Shield_ProV5.2.1.xpi
+│   └── Privacy_Shield_ProV5.2.1.zip
+│
+├── cookie.png                 # Diagrama del ataque
+└── README.md
 
 ### 🔬 How the Attack Works (Technical Overview)
 
@@ -108,11 +108,7 @@ instagram-session-hijacking-poc/
 
 <div align="center">
 
-![Diagrama de ataque - Robo de cookies vía extensión maliciosa](https://appcheck-ng.com/wp-content/uploads/Session-Hijacking-pic5.png)  
-*Ejemplo visual de flujo de session hijacking mediante cookie theft (fuente: AppCheck Security)*
-
-<!-- Si subes tu cookie.png al repo, reemplaza la línea de arriba por: -->
-<!-- ![Diagrama de robo de cookies](cookie.png) -->
+![Diagrama de robo de cookies](cookie.png)
 
 </div>
 
@@ -123,161 +119,32 @@ instagram-session-hijacking-poc/
    - v3: Chrome-compatible (Manifest V3)
    - Both steal cookies from multiple websites
    - Send stolen data to the attacker's server
-   - Use professional-looking icons and descriptions
 
 2. **Collector Server** (`server/`)
    - Simple Flask application
    - Receives POST requests with stolen cookies
    - Logs all received data
-   - Can be customized for specific targets
 
 3. **Fake Landing Page** (`web_page/`)
-   - Professional "Privacy Shield Pro" website
-   - Convincing copy and fake testimonials
-   - Download links for malicious extensions
-   - Social engineering elements to build trust
-
-### 🎯 Browser Compatibility
-
-| Extension Version | Target Browser | Manifest Version | Key Features                                      |
-|-------------------|----------------|------------------|---------------------------------------------------|
-| malicious_v2      | Firefox        | V2               | Background pages · Broad permissions · Direct cookie access |
-| malicious_v3      | Chrome/Edge    | V3               | Service workers · Limited permissions · Modern architecture |
-
-### 🛡️ Defense Strategies
-
-**For Regular Users:**
-
-1. Only install from official stores (Chrome Web Store, Firefox Add-ons)
-2. Review extension permissions before installation
-3. Regularly audit installed extensions
-4. Use browser security features (site isolation, enhanced protection)
-
-**For Technical Users:**
-
-1. Browser compartmentalization (different browsers for different activities)
-2. Cookie monitoring extensions
-3. Regular security audits
-4. Use of specialized security tools
-
-**For Organizations:**
-
-1. Extension allowlisting
-2. Network monitoring for unusual outbound connections
-3. Employee security training
-4. Implementation of security policies
-
-### 📊 Attack Impact Analysis
-
-| Website                | Stolen Data Type       | Potential Damage                               |
-|------------------------|------------------------|------------------------------------------------|
-| Instagram              | sessionid, csrftoken   | Account takeover, DM access                    |
-| Facebook               | c_user, xs             | Profile access, friend list                    |
-| Gmail                  | SID, HSID              | Email access, password reset                   |
-| Banking sites          | session cookies        | Financial fraud, transactions                  |
-| Any authenticated site | authentication tokens  | Full account compromise                        |
-
-### ⚖️ Ethical Guidelines
-
-**Do:**
-
-- Test only on systems you own
-- Use isolated virtual environments
-- Document findings for educational purposes
-- Report vulnerabilities responsibly
-- Follow responsible disclosure practices
-
-**Don't:**
-
-- Target systems you don't own
-- Use this knowledge maliciously
-- Share stolen credentials
-- Bypass security measures without authorization
-- Violate terms of service
-
-### 🔧 Getting Started (For Educational Purposes)
-
-> **Note:** Detailed setup instructions are available in the accompanying video tutorial. This is a high-level overview.
-
-**Basic Requirements:**
-
-- Two separate machines/virtual machines (attacker and victim)
-- Python 3.8+ on attacker machine
-- Modern web browsers (Firefox and/or Chrome)
-- Network connectivity between machines
-
-**High-Level Process:**
-
-1. Setup attacker server: Run `server/server.py` on attacker machine
-2. Configure extensions: Update server address in extension files
-3. Host fake website: Serve `web_page/` content
-4. Simulate attack: Follow video demonstration steps
+   - Professional-looking fake website to trick users into installing the extension
 
 ### 🌐 Connect with the Creator
 
 <div align="center">
 
-[![Portfolio Website](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)](https://jonas-fernandez-as.github.io)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)](https://jonas-fernandez-as.github.io)
 [![Instagram](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jonastrikex/)
 [![TikTok](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@jonastrikex)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jon%C3%A1s-fern%C3%A1ndez-as)
-[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@tu_canal_aqui) <!-- Reemplaza con tu URL real -->
+[![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@tu_canal) <!-- Pon tu canal real -->
 
 </div>
-
-### 📚 Additional Resources
-
-**Learning Ethical Hacking:**
-
-- OWASP Web Security Testing Guide
-- PortSwigger Web Security Academy
-- MITRE ATT&CK Framework
-
-**Browser Security Tools:**
-
-- uBlock Origin - Advanced content blocker
-- NoScript Security Suite - JavaScript control
-- Cookie AutoDelete - Cookie management
-
-**Security Best Practices:**
-
-- Always use 2FA/MFA where available
-- Regularly review account security settings
-- Use password managers with unique passwords
-- Keep software and browsers updated
-
-### 📄 License
-
-This project is licensed under the MIT License with Ethical Restriction:
-
-```
-MIT License
-
-Copyright (c) 2024 Jonás Fernández
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software WITHOUT MALICIOUS INTENT, exclusively for:
-- Authorized security research
-- Cybersecurity education
-- Testing in controlled, owned environments
-
-EXPRESSLY PROHIBITED use of this Software for:
-- Unauthorized access to systems
-- Privacy violation of third parties
-- Any illegal activity under applicable laws
-
-THE AUTHOR IS NOT RESPONSIBLE for misuse of this Software.
-```
 
 <div align="center">
 
 **Found this useful?**  
-⭐ Star this repository to support educational content  
-📢 Share responsibly - Educate, don't encourage harmful behavior  
-🔔 Subscribe to my YouTube channel for more technical analysis  
+⭐ Star this repo · 📢 Share responsibly · 🔔 Subscribe for more cybersecurity content  
 
 *"Cybersecurity knowledge is a scalpel: in wrong hands it causes harm, in expert hands it saves digital lives."*
 
 </div>
-```
