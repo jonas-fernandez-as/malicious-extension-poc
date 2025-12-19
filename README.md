@@ -15,9 +15,11 @@
 
 </div>
 
-### 🚨 CRITICAL WARNING - READ BEFORE PROCEEDING
+
 
 <div align="center" style="border: 3px solid #ff4444; padding: 20px; border-radius: 10px; background-color: #fff0f0; margin: 20px 0;">
+
+### 🚨 CRITICAL WARNING - READ BEFORE PROCEEDING
 
 **⚠️ FOR EDUCATIONAL PURPOSES ONLY ⚠️**  
 THIS IS A TECHNICAL DEMONSTRATION IN A CONTROLLED ENVIRONMENT  
