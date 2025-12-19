@@ -1,151 +1,121 @@
-🔐 Malicious Browser Extension PoC - Educational Security Research
+# 🔐 Instagram Session Hijacking - Educational Proof of Concept
+
 <div align="center">
 
-https://img.shields.io/badge/Python-3.8+-blue.svg
-https://img.shields.io/badge/Flask-2.0+-lightgrey.svg
-https://img.shields.io/badge/License-MIT-green.svg
-https://img.shields.io/badge/Platform-Linux%2520%257C%2520Windows%2520%257C%2520macOS-orange.svg
+![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Flask 2.0+](https://img.shields.io/badge/Flask-2.0+-lightgrey.svg)
+![License MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-orange.svg)
 
-⚠️ EDUCATIONAL USE ONLY
+**⚠️ EDUCATIONAL USE ONLY**
 
-https://img.shields.io/badge/YouTube-Video_Tutorial-red.svg
-https://img.shields.io/badge/Instagram-@jonastrikex-E4405F.svg
-https://img.shields.io/badge/TikTok-@jonastrikex-000000.svg
+![YouTube Video Tutorial](https://img.shields.io/badge/YouTube-Video_Tutorial-red.svg)
+[![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-purple.svg)](https://www.instagram.com/jonastrikex/)
+[![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-black.svg)](https://www.tiktok.com/@jonastrikex)
+
 </div>
-🚨 CRITICAL WARNING - READ BEFORE PROCEEDING
+
+### 🚨 CRITICAL WARNING - READ BEFORE PROCEEDING
+
 <div align="center" style="border: 3px solid #ff4444; padding: 20px; border-radius: 10px; background-color: #fff0f0; margin: 20px 0;">
 
-⚠️ FOR EDUCATIONAL PURPOSES ONLY ⚠️
-THIS IS A TECHNICAL DEMONSTRATION IN A CONTROLLED ENVIRONMENT
+**⚠️ FOR EDUCATIONAL PURPOSES ONLY ⚠️**  
+THIS IS A TECHNICAL DEMONSTRATION IN A CONTROLLED ENVIRONMENT  
 
-NEVER use this knowledge to:
+**NEVER** use this knowledge to:  
 
-    Access accounts that don't belong to you
+- Access accounts that don't belong to you  
+- Violate other people's privacy  
+- Perform illegal activities  
 
-    Violate other people's privacy
+**LEGAL CONSEQUENCES:**  
 
-    Perform illegal activities
+- Unauthorized computer access is a **CRIME** in most countries  
+- Can result in severe fines and imprisonment  
+- Permanent damage to your professional career  
 
-LEGAL CONSEQUENCES:
+**✅ PERMITTED USE:**  
 
-    Unauthorized computer access is a CRIME in most countries
-
-    Can result in severe fines and imprisonment
-
-    Permanent damage to your professional career
-
-✅ PERMITTED USE:
-
-    Learning in isolated labs
-
-    Authorized security research
-
-    Improving personal/organizational defenses
-
-    Ethical cybersecurity training
+- Learning in isolated labs  
+- Authorized security research  
+- Improving personal/organizational defenses  
+- Ethical cybersecurity training  
 
 </div>
-📹 Complete Video Explanation
+
+### 📹 Complete Video Explanation
+
 <div align="center">
 
-https://via.placeholder.com/800x450/ff0000/ffffff?text=WATCH+FULL+DEMONSTRATION
+[![WATCH FULL DEMONSTRATION](https://via.placeholder.com/800x450/ff0000/ffffff?text=WATCH+FULL+DEMONSTRATION)](https://www.youtube.com/watch?v=your_video_id_here)  
 
-Click the image to watch the complete demonstration on YouTube (reemplaza el link con tu video real)
+*Click the image to watch the complete demonstration on YouTube (reemplaza el link con tu video real)*
+
 </div>
-📖 Project Description
+
+### 📖 Project Description
 
 This repository contains an educational Proof of Concept (PoC) demonstrating Session Hijacking techniques through cookie theft. The objectives are:
 
-    Demonstrate how an attacker could potentially access accounts without credentials
+1. Demonstrate how an attacker could potentially access accounts without credentials  
+2. Educate about the risks of unverified browser extensions  
+3. Provide practical defense tools and knowledge  
 
-    Educate about the risks of unverified browser extensions
+### ⚡ Technologies Used
 
-    Provide practical defense tools and knowledge
+- Python 3.8+ with Flask for the collector server  
+- JavaScript for malicious browser extensions (DEMO)  
+- HTML/CSS for the fake landing page  
+- Multi-browser support (Firefox and Chrome)  
 
-⚡ Technologies Used
+### 🗂️ Repository Structure
 
-    Python 3.8+ with Flask for the collector server
+![Structure](structure.png)
 
-    JavaScript for malicious browser extensions (DEMO)
 
-    HTML/CSS for the fake landing page
+### 🔬 How the Attack Works (Technical Overview)
 
-    Multi-browser support (Firefox and Chrome)
+#### Attack Architecture
 
-🗂️ Repository Structure
-text
-
-malicious-extension-poc/
-├── malicious_v2/                    # Firefox-based extension (Manifest V2)
-│   ├── manifest.json               # Extension configuration (Firefox format)
-│   ├── background.js               # Background script that steals cookies
-│   ├── content.js                  # Content script for page injection
-│   └── icons/                      # Extension icons
-│       ├── icon-48.png
-│       └── icon-96.png
-├── malicious_v3/                    # Chrome-based extension (Manifest V3)
-│   ├── manifest.json               # Extension configuration (Chrome format)
-│   ├── background.js               # Service worker that steals cookies
-│   ├── content.js                  # Content script for page injection
-│   ├── popup.html                  # Extension popup interface
-│   └── icons/                      # Extension icons
-│       ├── icon-48.png
-│       └── icon-96.png
-├── server/                         # Attacker's collector server
-│   ├── server.py                   # Flask server for receiving stolen data
-│   ├── requirements.txt            # Python dependencies
-│   └── stolen_data.log             # Example of stolen data
-└── web_page/                       # Fake landing page for the attack
-    ├── index.html                  # Professional-looking fake website
-    ├── Privacy_Shield_ProV5.2.1.xpi  # Firefox extension package
-    └── Privacy_Shield_ProV5.2.1.zip  # Chrome extension package
-
-🔬 How the Attack Works (Technical Overview)
-Attack Architecture
 <div align="center">
 
-https://cookie.png
+![Diagrama de robo de cookies](cookie.png)
+
 </div>
 
-Key Components:
+**Key Components:**
 
-    Malicious Extensions (malicious_v2/, malicious_v3/)
+1. **Malicious Extensions** (`malicious_v2/`, `malicious_v3/`)
+   - v2: Firefox-compatible (Manifest V2)
+   - v3: Chrome-compatible (Manifest V3)
+   - Both steal cookies from multiple websites
+   - Send stolen data to the attacker's server
 
-        v2: Firefox-compatible (Manifest V2)
+2. **Collector Server** (`server/`)
+   - Simple Flask application
+   - Receives POST requests with stolen cookies
+   - Logs all received data
 
-        v3: Chrome-compatible (Manifest V3)
+3. **Fake Landing Page** (`web_page/`)
+   - Professional-looking fake website to trick users into installing the extension
 
-        Both steal cookies from multiple websites
+### 🌐 Connect with the Creator
 
-        Send stolen data to the attacker's server
-
-    Collector Server (server/)
-
-        Simple Flask application
-
-        Receives POST requests with stolen cookies
-
-        Logs all received data
-
-    Fake Landing Page (web_page/)
-
-        Professional-looking fake website to trick users into installing the extension
-
-🌐 Connect with the Creator
 <div align="center">
 
-https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge
-https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white
-https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white
-https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white
-https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white <!-- Pon tu canal real -->
-</div><div align="center">
+[![Portfolio](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)](https://jonas-fernandez-as.github.io)
+[![Instagram](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jonastrikex/)
+[![TikTok](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@jonastrikex)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jon%C3%A1s-fern%C3%A1ndez-as)
+[![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@JonaStrikeX)
 
-Found this useful?
-⭐ Star this repo · 📢 Share responsibly · 🔔 Subscribe for more cybersecurity content
-
-"Cybersecurity knowledge is a scalpel: in wrong hands it causes harm, in expert hands it saves digital lives."
 </div>
-📄 License
 
-This project is licensed under the MIT License with Ethical Restrictions - see the LICENSE file for details.
+<div align="center">
+
+**Found this useful?**  
+⭐ Star this repo · 📢 Share responsibly · 🔔 Subscribe for more cybersecurity content  
+
+*"Cybersecurity knowledge is a scalpel: in wrong hands it causes harm, in expert hands it saves digital lives."*
+
+</div>
