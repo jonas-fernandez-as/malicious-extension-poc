@@ -1,3 +1,6 @@
+Aquí tienes la versión corregida del README.md en Markdown, con los badges de redes sociales y portfolio ahora como **enlaces clicables** que apuntan a las URLs reales que me diste.
+
+```markdown
 # 🔐 Instagram Session Hijacking - Educational Proof of Concept
 
 <div align="center">
@@ -10,8 +13,8 @@
 **⚠️ EDUCATIONAL USE ONLY**
 
 ![YouTube Video Tutorial](https://img.shields.io/badge/YouTube-Video_Tutorial-red.svg)
-![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-purple.svg)
-![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-black.svg)
+[![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-purple.svg)](https://www.instagram.com/jonastrikex/)
+[![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-black.svg)](https://www.tiktok.com/@jonastrikex)
 
 </div>
 
@@ -211,11 +214,11 @@ instagram-session-hijacking-poc/
 
 <div align="center">
 
-![Portfolio Website](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)
-![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)
-![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)
-![LinkedIn Profile](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)
-![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+[![Portfolio Website](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)](https://jonas-fernandez-as.github.io)
+[![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jonastrikex/)
+[![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@jonastrikex)
+[![LinkedIn Profile](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jon%C3%A1s-fern%C3%A1ndez-as)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@your_channel_here)  <!-- Reemplaza con tu canal real si lo deseas -->
 
 </div>
 
@@ -274,3 +277,5 @@ THE AUTHOR IS NOT RESPONSIBLE for misuse of this Software.
 *"Cybersecurity knowledge is a scalpel: in wrong hands it causes harm, in expert hands it saves digital lives."*
 
 </div>
+```
+
