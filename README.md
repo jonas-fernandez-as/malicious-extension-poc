@@ -1,5 +1,3 @@
-Aquí tienes la versión corregida del README.md en Markdown, con los badges de redes sociales y portfolio ahora como **enlaces clicables** que apuntan a las URLs reales que me diste.
-
 ```markdown
 # 🔐 Instagram Session Hijacking - Educational Proof of Concept
 
@@ -76,149 +74,154 @@ This repository contains an educational Proof of Concept (PoC) demonstrating Ses
 ```
 instagram-session-hijacking-poc/
 │
-├── 📁 malicious_v2/           # Firefox-based extension (Manifest V2)
-│   ├── manifest.json          # Extension configuration (Firefox format)
-│   ├── background.js          # Background script that steals cookies
-│   ├── content.js             # Content script for page injection
-│   └── icons/                 # Extension icons
+├── malicious_v2/              # Firefox-based extension (Manifest V2)
+│   ├── manifest.json
+│   ├── background.js
+│   ├── content.js
+│   └── icons/
 │       ├── icon-48.png
 │       └── icon-96.png
 │
-├── 📁 malicious_v3/           # Chrome-based extension (Manifest V3)
-│   ├── manifest.json          # Extension configuration (Chrome format)
-│   ├── background.js          # Service worker that steals cookies
-│   ├── content.js             # Content script for page injection
-│   ├── popup.html             # Extension popup interface
-│   └── icons/                 # Extension icons
+├── malicious_v3/              # Chrome-based extension (Manifest V3)
+│   ├── manifest.json
+│   ├── background.js
+│   ├── content.js
+│   ├── popup.html
+│   └── icons/
 │       ├── icon-48.png
 │       └── icon-96.png
 │
-├── 📁 server/                 # Attacker's collector server
-│   ├── server.py              # Flask server for receiving stolen data
-│   ├── requirements.txt       # Python dependencies
-│   └── stolen_data.log        # Example of stolen data
+├── server/                    # Attacker's collector server
+│   ├── server.py
+│   ├── requirements.txt
+│   └── stolen_data.log
 │
-└── 📁 web_page/               # Fake landing page for the attack
-    ├── index.html             # Professional-looking fake website
-    ├── Privacy_Shield_ProV5.2.1.xpi  # Firefox extension package
-    └── Privacy_Shield_ProV5.2.1.zip  # Chrome extension package
+└── web_page/                  # Fake landing page for the attack
+    ├── index.html
+    ├── Privacy_Shield_ProV5.2.1.xpi
+    └── Privacy_Shield_ProV5.2.1.zip
 ```
 
 ### 🔬 How the Attack Works (Technical Overview)
 
 #### Attack Architecture
 
-![Diagrama de robo de cookies](cookie.png)
+<div align="center">
+
+![Diagrama de ataque - Robo de cookies vía extensión maliciosa](https://appcheck-ng.com/wp-content/uploads/Session-Hijacking-pic5.png)  
+*Ejemplo visual de flujo de session hijacking mediante cookie theft (fuente: AppCheck Security)*
+
+<!-- Si subes tu cookie.png al repo, reemplaza la línea de arriba por: -->
+<!-- ![Diagrama de robo de cookies](cookie.png) -->
+
+</div>
 
 **Key Components:**
 
 1. **Malicious Extensions** (`malicious_v2/`, `malicious_v3/`)
-
-   - v2: Firefox-compatible (Manifest V2)  
-   - v3: Chrome-compatible (Manifest V3)  
-   - Both steal cookies from multiple websites  
-   - Send stolen data to the attacker's server  
-   - Use professional-looking icons and descriptions  
+   - v2: Firefox-compatible (Manifest V2)
+   - v3: Chrome-compatible (Manifest V3)
+   - Both steal cookies from multiple websites
+   - Send stolen data to the attacker's server
+   - Use professional-looking icons and descriptions
 
 2. **Collector Server** (`server/`)
-
-   - Simple Flask application  
-   - Receives POST requests with stolen cookies  
-   - Logs all received data  
-   - Can be customized for specific targets  
+   - Simple Flask application
+   - Receives POST requests with stolen cookies
+   - Logs all received data
+   - Can be customized for specific targets
 
 3. **Fake Landing Page** (`web_page/`)
-
-   - Professional "Privacy Shield Pro" website  
-   - Convincing copy and fake testimonials  
-   - Download links for malicious extensions  
-   - Social engineering elements to build trust  
+   - Professional "Privacy Shield Pro" website
+   - Convincing copy and fake testimonials
+   - Download links for malicious extensions
+   - Social engineering elements to build trust
 
 ### 🎯 Browser Compatibility
 
-| Extension Version | Target Browser     | Manifest Version | Key Features                          |
-|-------------------|--------------------|------------------|---------------------------------------|
-| malicious_v2      | Firefox            | V2               | - Background pages<br>- Broad permissions<br>- Direct cookie access |
-| malicious_v3      | Chrome/Edge        | V3               | - Service workers<br>- Limited permissions<br>- Modern architecture |
+| Extension Version | Target Browser | Manifest Version | Key Features                                      |
+|-------------------|----------------|------------------|---------------------------------------------------|
+| malicious_v2      | Firefox        | V2               | Background pages · Broad permissions · Direct cookie access |
+| malicious_v3      | Chrome/Edge    | V3               | Service workers · Limited permissions · Modern architecture |
 
 ### 🛡️ Defense Strategies
 
 **For Regular Users:**
 
-1. Only install from official stores (Chrome Web Store, Firefox Add-ons)  
-2. Review extension permissions before installation  
-3. Regularly audit installed extensions  
-4. Use browser security features (site isolation, enhanced protection)  
+1. Only install from official stores (Chrome Web Store, Firefox Add-ons)
+2. Review extension permissions before installation
+3. Regularly audit installed extensions
+4. Use browser security features (site isolation, enhanced protection)
 
 **For Technical Users:**
 
-1. Browser compartmentalization (different browsers for different activities)  
-2. Cookie monitoring extensions  
-3. Regular security audits  
-4. Use of specialized security tools  
+1. Browser compartmentalization (different browsers for different activities)
+2. Cookie monitoring extensions
+3. Regular security audits
+4. Use of specialized security tools
 
 **For Organizations:**
 
-1. Extension allowlisting  
-2. Network monitoring for unusual outbound connections  
-3. Employee security training  
-4. Implementation of security policies  
+1. Extension allowlisting
+2. Network monitoring for unusual outbound connections
+3. Employee security training
+4. Implementation of security policies
 
 ### 📊 Attack Impact Analysis
 
-| Website            | Stolen Data Type      | Potential Damage                          |
-|--------------------|-----------------------|-------------------------------------------|
-| Instagram          | sessionid, csrftoken  | Account takeover, DM access               |
-| Facebook           | c_user, xs            | Profile access, friend list               |
-| Gmail              | SID, HSID             | Email access, password reset              |
-| Banking sites      | session cookies       | Financial fraud, transactions              |
-| Any authenticated site | authentication tokens | Full account compromise                   |
+| Website                | Stolen Data Type       | Potential Damage                               |
+|------------------------|------------------------|------------------------------------------------|
+| Instagram              | sessionid, csrftoken   | Account takeover, DM access                    |
+| Facebook               | c_user, xs             | Profile access, friend list                    |
+| Gmail                  | SID, HSID              | Email access, password reset                   |
+| Banking sites          | session cookies        | Financial fraud, transactions                  |
+| Any authenticated site | authentication tokens  | Full account compromise                        |
 
 ### ⚖️ Ethical Guidelines
 
 **Do:**
 
-- Test only on systems you own  
-- Use isolated virtual environments  
-- Document findings for educational purposes  
-- Report vulnerabilities responsibly  
-- Follow responsible disclosure practices  
+- Test only on systems you own
+- Use isolated virtual environments
+- Document findings for educational purposes
+- Report vulnerabilities responsibly
+- Follow responsible disclosure practices
 
 **Don't:**
 
-- Target systems you don't own  
-- Use this knowledge maliciously  
-- Share stolen credentials  
-- Bypass security measures without authorization  
-- Violate terms of service  
+- Target systems you don't own
+- Use this knowledge maliciously
+- Share stolen credentials
+- Bypass security measures without authorization
+- Violate terms of service
 
 ### 🔧 Getting Started (For Educational Purposes)
 
-> **Note:** Detailed setup instructions are available in the accompanying video tutorial. This is a high-level overview for educational understanding.
+> **Note:** Detailed setup instructions are available in the accompanying video tutorial. This is a high-level overview.
 
 **Basic Requirements:**
 
-- Two separate machines/virtual machines (attacker and victim)  
-- Python 3.8+ on attacker machine  
-- Modern web browsers (Firefox and/or Chrome)  
-- Network connectivity between machines  
+- Two separate machines/virtual machines (attacker and victim)
+- Python 3.8+ on attacker machine
+- Modern web browsers (Firefox and/or Chrome)
+- Network connectivity between machines
 
 **High-Level Process:**
 
-1. Setup attacker server: Run `server/server.py` on attacker machine  
-2. Configure extensions: Update server address in extension files  
-3. Host fake website: Serve `web_page/` content  
-4. Simulate attack: Follow video demonstration steps  
+1. Setup attacker server: Run `server/server.py` on attacker machine
+2. Configure extensions: Update server address in extension files
+3. Host fake website: Serve `web_page/` content
+4. Simulate attack: Follow video demonstration steps
 
 ### 🌐 Connect with the Creator
 
 <div align="center">
 
 [![Portfolio Website](https://img.shields.io/badge/Portfolio-Website-blue?style=for-the-badge)](https://jonas-fernandez-as.github.io)
-[![Instagram @jonastrikex](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jonastrikex/)
-[![TikTok @jonastrikex](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@jonastrikex)
-[![LinkedIn Profile](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jon%C3%A1s-fern%C3%A1ndez-as)
-[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@your_channel_here)  <!-- Reemplaza con tu canal real si lo deseas -->
+[![Instagram](https://img.shields.io/badge/Instagram-@jonastrikex-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/jonastrikex/)
+[![TikTok](https://img.shields.io/badge/TikTok-@jonastrikex-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@jonastrikex)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jon%C3%A1s-fern%C3%A1ndez-as)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@tu_canal_aqui) <!-- Reemplaza con tu URL real -->
 
 </div>
 
@@ -226,22 +229,22 @@ instagram-session-hijacking-poc/
 
 **Learning Ethical Hacking:**
 
-- OWASP Web Security Testing Guide  
-- PortSwigger Web Security Academy  
-- MITRE ATT&CK Framework  
+- OWASP Web Security Testing Guide
+- PortSwigger Web Security Academy
+- MITRE ATT&CK Framework
 
 **Browser Security Tools:**
 
-- uBlock Origin - Advanced content blocker  
-- NoScript Security Suite - JavaScript control  
-- Cookie AutoDelete - Cookie management  
+- uBlock Origin - Advanced content blocker
+- NoScript Security Suite - JavaScript control
+- Cookie AutoDelete - Cookie management
 
 **Security Best Practices:**
 
-- Always use 2FA/MFA where available  
-- Regularly review account security settings  
-- Use password managers with unique passwords  
-- Keep software and browsers updated  
+- Always use 2FA/MFA where available
+- Regularly review account security settings
+- Use password managers with unique passwords
+- Keep software and browsers updated
 
 ### 📄 License
 
@@ -278,4 +281,3 @@ THE AUTHOR IS NOT RESPONSIBLE for misuse of this Software.
 
 </div>
 ```
-
