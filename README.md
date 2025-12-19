@@ -70,37 +70,37 @@ This repository contains an educational Proof of Concept (PoC) demonstrating Ses
 
 ### 🗂️ Repository Structure
 
-malicious-extension-poc/
+
+instagram-session-hijacking-poc/
 │
-├── malicious_v2/              # Firefox-based extension (Manifest V2)
-│   ├── manifest.json
-│   ├── background.js
-│   ├── content.js
-│   └── icons/
+├── 📁 malicious_v2/           # Firefox-based extension (Manifest V2)
+│   ├── manifest.json          # Extension configuration (Firefox format)
+│   ├── background.js          # Background script that steals cookies
+│   ├── content.js             # Content script for page injection
+│   └── icons/                 # Extension icons
 │       ├── icon-48.png
 │       └── icon-96.png
 │
-├── malicious_v3/              # Chrome-based extension (Manifest V3)
-│   ├── manifest.json
-│   ├── background.js
-│   ├── content.js
-│   ├── popup.html
-│   └── icons/
+├── 📁 malicious_v3/           # Chrome-based extension (Manifest V3)
+│   ├── manifest.json          # Extension configuration (Chrome format)
+│   ├── background.js          # Service worker that steals cookies
+│   ├── content.js             # Content script for page injection
+│   ├── popup.html             # Extension popup interface
+│   └── icons/                 # Extension icons
 │       ├── icon-48.png
 │       └── icon-96.png
 │
-├── server/                    # Attacker's collector server
-│   ├── server.py
-│   ├── requirements.txt
-│   └── stolen_data.log
+├── 📁 server/                 # Attacker's collector server
+│   ├── server.py              # Flask server for receiving stolen data
+│   ├── requirements.txt       # Python dependencies
+│   └── stolen_data.log        # Example of stolen data
 │
-├── web_page/                  # Fake landing page for the attack
-│   ├── index.html
-│   ├── Privacy_Shield_ProV5.2.1.xpi
-│   └── Privacy_Shield_ProV5.2.1.zip
-│
-├── cookie.png                 # Diagrama del ataque
-└── README.md
+└── 📁 web_page/               # Fake landing page for the attack
+    ├── index.html             # Professional-looking fake website
+    ├── Privacy_Shield_ProV5.2.1.xpi  # Firefox extension package
+    └── Privacy_Shield_ProV5.2.1.zip  # Chrome extension package
+
+
 
 ### 🔬 How the Attack Works (Technical Overview)
 
