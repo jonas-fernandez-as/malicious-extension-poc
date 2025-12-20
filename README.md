@@ -49,7 +49,7 @@ THIS IS A TECHNICAL DEMONSTRATION IN A CONTROLLED ENVIRONMENT
 
 <div align="center">
 
-[![WATCH FULL DEMONSTRATION](https://via.placeholder.com/800x450/ff0000/ffffff?text=WATCH+FULL+DEMONSTRATION)](https://www.youtube.com/watch?v=your_video_id_here)  
+[![WATCH FULL DEMONSTRATION](https://via.placeholder.com/800x450/ff0000/ffffff?text=WATCH+FULL+DEMONSTRATION)](https://youtu.be/LyeTdyoM4MQ)  
 
 *Click the image to watch the complete demonstration on YouTube (reemplaza el link con tu video real)*
 
